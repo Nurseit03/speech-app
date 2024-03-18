@@ -7,26 +7,32 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 
 interface IHeaderProps {
-    title: string;
+  title: string;
 }
 
-export default function Header({title}: IHeaderProps) {
+export default function Header({ title }: IHeaderProps) {
   return (
-    <Box sx={{ flexGrow: 1, backgroundColor: "lightgrey"}}>
+    <Box sx={{ flexGrow: 1, backgroundColor: "#4450bc" }}>
       <AppBar position="static" color="transparent">
         <Toolbar>
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
             aria-label="menu"
+            sx={{
+              color: "white",
+            }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, color: "white" }}
+          >
             {title}
           </Typography>
-          <Button color="inherit">Вход</Button>
+          <Button sx={{ color: "white" }}>Вход</Button>
         </Toolbar>
       </AppBar>
     </Box>
