@@ -1,8 +1,11 @@
-import RouterConfig from '../navigation/RouterConfig';
+import { BrowserRouter } from "react-router-dom";
+import RouterConfig from "../navigation/RouterConfig";
 
 function App() {
   return (
-    <RouterConfig />
+    <BrowserRouter>
+      <RouterConfig />
+    </BrowserRouter>
   );
 }
 

@@ -1,4 +1,4 @@
-import { Suspense, lazy } from "react";
+import { Suspense } from "react";
 import { Outlet, Route, Routes } from "react-router-dom";
 
 import * as PATH from "./constants";
