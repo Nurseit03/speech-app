@@ -1,16 +1,16 @@
 import { FC, PropsWithChildren } from "react";
 import { Box } from "@mui/material";
-// import Header from "";
-// import Footer from "";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
 
 export const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <Box>
-      {/* <Header /> */}
+      <Header title="Голосовой блокнот"/>
       <Box component="main" style={{ width: "100%", margin: "0 auto" }}>
         {children}
       </Box>
-      {/* <Footer /> */}
+      <Footer />
     </Box>
   );
 };

@@ -49,7 +49,7 @@ export const VoiceInput = () => {
           width: "min-content"
         }}
       >
-        {isListening ? "Stop listening" : "Speak"}
+        {isListening ? "Стоп" : "Записать"}
       </Button>
       <textarea
         style={{
@@ -64,6 +64,7 @@ export const VoiceInput = () => {
           backgroundColor: "#f8f8f8",
           color: "#333",
         }}
+        placeholder="Ввод текста"
         disabled={isListening}
         value={
           isListening
