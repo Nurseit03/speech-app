@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import useNotificationStore from "../stores/notification";
 
 interface SpeechRecognitionOptions {
   interimResults?: boolean;
@@ -11,10 +12,13 @@ const useSpeechToText = (options: SpeechRecognitionOptions = {}) => {
   const [transcript, setTranscript] = useState("");
   const recgonitionRef = useRef<any>(null);
 
+  const setNotification = useNotificationStore((state) => state.setNotification);
+
   useEffect(() => {
     if (!("webkitSpeechRecognition" in window)) {
       console.error("Web speeaach api is not supported");
-      return;
+      setNotification("Web speeaach api is not supported", "error")
+      // return;
     }
 
     recgonitionRef.current = new  (window as any).webkitSpeechRecognition();
@@ -40,7 +44,8 @@ const useSpeechToText = (options: SpeechRecognitionOptions = {}) => {
     };
 
     recognition.onerror = (event: any) => {
-      console.error("Speech recognition error: ", event.error);
+      console.error("Speech recognition error:", event.error);
+      setNotification(`Speech recognition error: ${event.error}`, "error")
     };
 
     recognition.onend = () => {
