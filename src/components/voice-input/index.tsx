@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { useState } from "react";
 import Button from "../ui/Button";
-import useSpeechToText from "../hooks/useSpeechToText";
+import useSpeechToText from "../../hooks/useSpeechToText";
 import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 
 export const VoiceInput = () => {
