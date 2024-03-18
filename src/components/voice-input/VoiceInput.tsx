@@ -55,7 +55,7 @@ export const VoiceInput = () => {
       <textarea
         style={{
           marginTop: "20px",
-          width: "100%",
+          width: "90%",
           height: "150px",
           padding: "10px",
           border: "1px solid #ccc",
