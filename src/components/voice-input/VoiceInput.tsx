@@ -3,6 +3,7 @@ import { useState } from "react";
 import Button from "../ui/Button";
 import useSpeechToText from "../../hooks/useSpeechToText";
 import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
+import StopIcon from "@mui/icons-material/Stop";
 
 export const VoiceInput = () => {
   const [textInput, setTextInput] = useState("");
@@ -37,7 +38,7 @@ export const VoiceInput = () => {
         onClick={() => {
           startStopListening();
         }}
-        endIcon={<KeyboardVoiceIcon />}
+        endIcon={!isListening ? <KeyboardVoiceIcon /> : <StopIcon />}
         sx={{
           backgroundColor: isListening ? "#d62d20" : "#008744",
           color: "white",
@@ -46,7 +47,7 @@ export const VoiceInput = () => {
           borderRadius: "5px",
           cursor: "pointer",
           transition: "background-color 0.3 ease",
-          width: "min-content"
+          width: "min-content",
         }}
       >
         {isListening ? "Стоп" : "Записать"}

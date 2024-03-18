@@ -12,16 +12,18 @@ const useSpeechToText = (options: SpeechRecognitionOptions = {}) => {
   const [transcript, setTranscript] = useState("");
   const recgonitionRef = useRef<any>(null);
 
-  const setNotification = useNotificationStore((state) => state.setNotification);
+  const setNotification = useNotificationStore(
+    (state) => state.setNotification
+  );
 
   useEffect(() => {
     if (!("webkitSpeechRecognition" in window)) {
       console.error("Web speeaach api is not supported");
-      setNotification("Web speeaach api is not supported", "error")
-      // return;
+      setNotification("Web speeaach api is not supported", "error");
+      return;
     }
 
-    recgonitionRef.current = new  (window as any).webkitSpeechRecognition();
+    recgonitionRef.current = new (window as any).webkitSpeechRecognition();
     const recognition = recgonitionRef.current;
     recgonitionRef.current.interimResults = options.interimResults || true;
     recgonitionRef.current.lang = options.lang || "en-US";
@@ -30,7 +32,9 @@ const useSpeechToText = (options: SpeechRecognitionOptions = {}) => {
     if ("webkitSpeechGrammarList" in window) {
       const grammar =
         "#JSGF V1.0; grammar punctuation; public <punc> = . | , | ? | ! | ; | : ;";
-      const speechRecognitionList = new  (window as any).webkitSpeechGrammarList();
+      const speechRecognitionList = new (
+        window as any
+      ).webkitSpeechGrammarList();
       speechRecognitionList.addFromString(grammar, 1);
       recognition.grammars = speechRecognitionList;
     }
@@ -45,7 +49,8 @@ const useSpeechToText = (options: SpeechRecognitionOptions = {}) => {
 
     recognition.onerror = (event: any) => {
       console.error("Speech recognition error:", event.error);
-      setNotification(`Speech recognition error: ${event.error}`, "error")
+      setNotification(`Speech recognition error: ${event.error}`, "error");
+      return;
     };
 
     recognition.onend = () => {
