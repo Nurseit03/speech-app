@@ -1,18 +1,33 @@
-import React, { useState } from "react";
+import { Box } from "@mui/material";
+import { useState } from "react";
+import Button from "../ui/Button";
 
 export const VoiceInput = () => {
   const [textInput, setTextInput] = useState("");
 
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         display: "block",
         margin: "0 auto",
-        width: "400px",
+        width: { xs: "100%", md: "400px" },
         textAlign: "center",
         marginTop: "200px",
       }}
     >
+      <Button
+        sx={{
+          backgroundColor: "#008744",
+          color: "white",
+          padding: "10px 20px",
+          border: "none",
+          borderRadius: "5px",
+          cursor: "pointer",
+          transition: "background-color 0.3 ease",
+        }}
+      >
+        Button
+      </Button>
       <textarea
         style={{
           marginTop: "20px",
@@ -31,6 +46,6 @@ export const VoiceInput = () => {
           setTextInput(e.target.value);
         }}
       />
-    </div>
+    </Box>
   );
 };
