@@ -1,10 +1,10 @@
 import { Container } from "@mui/material";
-import RecordVoiceContent from "../../components/record-voice/RecordVoiceContent";
+import SpeechRecognizerContent from "../../components/speech-recognizer/SpeechRecognizer";
 
 export const Main = () => {
   return (
     <Container>
-      <RecordVoiceContent />
+      <SpeechRecognizerContent />
     </Container>
   );
 };

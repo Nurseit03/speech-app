@@ -1,11 +1,15 @@
 import { Box } from "@mui/material";
-import { useState } from "react";
+import { FC, useEffect, useState } from "react";
 import Button from "../ui/Button";
 import useSpeechToText from "../../hooks/useSpeechToText";
 import KeyboardVoiceIcon from "@mui/icons-material/KeyboardVoice";
 import StopIcon from "@mui/icons-material/Stop";
 
-export const VoiceInput = () => {
+interface VoiceInputProps {
+  getText?: (text: string) => void;
+}
+
+const VoiceInput: FC<VoiceInputProps> = ({ getText }) => {
   const [textInput, setTextInput] = useState("");
 
   const { isListening, transcript, startListening, stopListening } =
@@ -21,8 +25,13 @@ export const VoiceInput = () => {
         prevVal +
         (transcript.length ? (prevVal.length ? "" : "") + transcript : "")
     );
+
     stopListening();
   };
+
+  useEffect(() => {
+    getText && getText(textInput);
+  }, [textInput]);
 
   return (
     <Box
@@ -48,6 +57,9 @@ export const VoiceInput = () => {
           cursor: "pointer",
           transition: "background-color 0.3 ease",
           width: "min-content",
+          "&:hover": {
+            backgroundColor: isListening ? "#d62d20" : "#008744",
+          },
         }}
       >
         {isListening ? "Стоп" : "Записать"}
@@ -65,7 +77,7 @@ export const VoiceInput = () => {
           backgroundColor: "#f8f8f8",
           color: "#333",
         }}
-        placeholder="Ввод текста"
+        placeholder="Запишите что-нибудь"
         disabled={isListening}
         value={
           isListening
@@ -82,3 +94,5 @@ export const VoiceInput = () => {
     </Box>
   );
 };
+
+export default VoiceInput;
