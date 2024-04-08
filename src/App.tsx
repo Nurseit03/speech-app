@@ -2,6 +2,7 @@ import { BrowserRouter } from "react-router-dom";
 import RouterConfig from "./navigation/RouterConfig";
 import useNotificationStore from "./stores/notification";
 import Notification from "./components/ui/Notification";
+import Layout from "./modules/layout/Layout";
 
 export default function App() {
   const notification = useNotificationStore((state) => state.notification);
@@ -25,7 +26,9 @@ export default function App() {
         variant="filled"
         severity={severity ?? "error"}
       />
-      <RouterConfig />
+      <Layout>
+        <RouterConfig />
+      </Layout>
     </BrowserRouter>
   );
 }

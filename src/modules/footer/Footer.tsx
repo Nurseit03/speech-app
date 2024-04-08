@@ -1,21 +1,3 @@
-// import React from 'react';
-
-// const Footer = () => {
-//   return (
-//     <footer style={{
-//       position: "fixed",
-//       bottom: 0,
-//       width: "100%",
-//       backgroundColor: "lightgray",
-//       textAlign: "center",
-//       padding: "10px 0"
-//     }}>
-//       Footer
-//     </footer>
-//   );
-// };
-
-// export default Footer;
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import BottomNavigation from "@mui/material/BottomNavigation";

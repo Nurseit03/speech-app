@@ -1,11 +1,10 @@
-import Layout from "../../modules/layout/Layout";
-import { VoiceInput } from '../../components/voice-input/VoiceInput';
-
+import { Container } from "@mui/material";
+import RecordVoiceContent from "../../components/record-voice/RecordVoiceContent";
 
 export const Main = () => {
   return (
-    <Layout>
-      <VoiceInput />
-    </Layout>
-  )
-}
+    <Container>
+      <RecordVoiceContent />
+    </Container>
+  );
+};
