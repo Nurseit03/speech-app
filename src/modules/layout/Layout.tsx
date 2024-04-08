@@ -7,7 +7,7 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <Box>
       <Header title="Голосовой блокнот"/>
-      <Box component="main" style={{ width: "100%", margin: "0 auto" }}>
+      <Box component="main" style={{ width: "100%" }}>
         {children}
       </Box>
       <Footer />
