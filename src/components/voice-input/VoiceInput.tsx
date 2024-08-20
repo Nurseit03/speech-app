@@ -13,7 +13,7 @@ const VoiceInput: FC<VoiceInputProps> = ({ getText }) => {
   const [textInput, setTextInput] = useState("");
 
   const { isListening, transcript, startListening, stopListening } =
-    useSpeechToText({ continuous: true });
+    useSpeechToText({ continuous: true, lang: "ru-RU" });
 
   const startStopListening = () => {
     isListening ? stopVoiceInput() : startListening();
